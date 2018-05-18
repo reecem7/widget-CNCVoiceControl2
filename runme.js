@@ -206,6 +206,8 @@ http.createServer(function(req, res) {
   }
 
 }).listen(3001);
+console.log('Server running on port: %d', 3001);
+
 // }).listen(process.env.PORT);
 
 
@@ -1533,19 +1535,20 @@ var getGithubUrl = function(callback) {
   // new approach. use the command line from git
   // git config --get remote.origin.url
 
-  var childproc = require('child_process');
-  var cmd = 'git config --get remote.origin.url';
+  // var childproc = require('child_process');
+  // var cmd = 'git config --get remote.origin.url';
+  //
+  // var stdout = childproc.execSync(cmd, { encoding: 'utf8' });
+  // //console.log("Got the following Github URL:", stdout);
+  //
+  // var re = /.*github.com:/i;
+  // var url = stdout.replace(re, "");
+  // url = url.replace(/.git[\s\S]*$/i, ""); // remove end
+  //
+  // // prepend with clean githut url
+  // url = "http://github.com/" + url;
 
-  var stdout = childproc.execSync(cmd, { encoding: 'utf8' });
-  //console.log("Got the following Github URL:", stdout);
-
-  var re = /.*github.com:/i;
-  var url = stdout.replace(re, "");
-  url = url.replace(/.git[\s\S]*$/i, ""); // remove end
-
-  // prepend with clean githut url
-  url = "http://github.com/" + url;
-
+  var url = "https://github.com/reecem7/widget-CNCVoiceControl2"; //added
   var rawurl = url.replace(/\/github.com\//i, "/raw.githubusercontent.com/");
   rawurl += '/master/auto-generated-widget.html';
 
