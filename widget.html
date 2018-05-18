@@ -5,32 +5,6 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
     <title><!--(auto-fill by runme.js--></title>
-
-    <!-- ChiliPeppr is based on bootstrap CSS. -->
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-    <!-- Customized version of require.js for ChiliPeppr. Please see require.js docs for how
-    ChiliPeppr's dependency system works as it's based on require.js. -->
-    <script type='text/javascript' src="//i2dcui.appspot.com/js/require.js"></script>
-
-    <!-- widget.css DON'T REMOVE -->
-    <style type='text/css'>
-        /* widget.css will get inlined here by runme.js. don't remove this comment or inlining will fail. */
-    </style>
-    <link rel="stylesheet" type="text/css" href="widget.css">
-    <!-- DON'T REMOVE end widget.css -->
-
-    <!-- widget.js DON'T REMOVE -->
-    <script type='text/javascript'>
-        //<![CDATA[
-        /* widget.js will get inlined here by runme.js. don't remove this comment or inlining will fail. */
-        //]]>
-    </script>
-    <script type='text/javascript' src="widget.js"></script>
-    <!-- DON'T REMOVE end widget.js -->
-
-   <!-- <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> -->
-
 </head>
 
 <body>
@@ -69,35 +43,13 @@
 
                 <!-- Tab 1 -->
                 <div class="tab-pane active" id="com-chilipeppr-widget-CNCVoiceControl2-tab1">
-                    <!--<div id="slidecontainer">
-                        <div id="speedRO">Speed: <span id="demo"></span> rpm </div>
-                          <input type="range" min="5000" max="24000" value="8000" step="100" class="slider" id="myRange">
-                            <table>
-                                <th>
-                                   <div id="curSpeedRO">Current Speed: <span id="demo2"> </span> rpm</div>
-                                </th>
-                                <tr>
-                                    <td><button type="button" class="btn btn-xs btn-default btn-spindleOn-CW">Spindle On-CW</button><button type="button" class="btn btn-xs btn-default btn-spindleOn-CCW">Spindle On-CCW</button>
-                                    <button type="button" class="btn btn-xs btn-default btn-spindleOff">Spindle Off</button></td>
-                                </tr>
-                            </table>
-                    </div> -->
+
                     <div class="textlog-body" >
                         <table>
-                            <th>Webkit</th>
-                          <tr>
-                              <td><button type="button" class="btn btn-xs btn-default btn-voiceOn">Voice Control On</button></td>
-                              <td><button type="button" class="btn btn-xs btn-default btn-voiceOff">Voice Control Off</button></td>
-                          </tr>
-                          <th>Annyang</th>
-                          <tr>
-                          <td><button type="button" class="btn btn-xs btn-default btn-voiceOn2">Voice Control On</button></td>
-                          <td><button type="button" class="btn btn-xs btn-default btn-voiceOff2">Voice Control Off</button></td>
-                          </tr>
                           <th>Watson</th>
                           <tr>
-                            <td><button type="button" class="btn btn-xs btn-default btn-voiceOn3">Voice Control On</button></td>
-                            <td><button type="button" class="btn btn-xs btn-default btn-voiceOff3">Voice Control Off</button></td>
+                            <td><button type="button" class="btn btn-xs btn-default btn-voiceOn">Voice Control On</button></td>
+                            <td><button type="button" class="btn btn-xs btn-default btn-voiceOff">Voice Control Off</button></td>
                          </tr>
                         </table>
                           <!--<br><label for="output">You said: </label><input type="textbox" name="output"></input>-->
@@ -122,6 +74,51 @@
 
         </div>
     </div>
+
+    <!-- ChiliPeppr is based on bootstrap CSS. -->
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Customized version of require.js for ChiliPeppr. Please see require.js docs for how
+    ChiliPeppr's dependency system works as it's based on require.js. -->
+    <script type='text/javascript' src="//i2dcui.appspot.com/js/require.js"></script>
+
+    <!-- widget.css DON'T REMOVE -->
+    <style type='text/css'>
+        /* widget.css will get inlined here by runme.js. don't remove this comment or inlining will fail. */
+    </style>
+    <link rel="stylesheet" type="text/css" href="widget.css">
+    <!-- DON'T REMOVE end widget.css -->
+
+    <!-- widget.js DON'T REMOVE -->
+    <script type='text/javascript'>
+        //<![CDATA[
+        /* widget.js will get inlined here by runme.js. don't remove this comment or inlining will fail. */
+        //]]>
+    </script>
+    <script type='text/javascript' src="widget.js"></script>
+    <!-- DON'T REMOVE end widget.js -->
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/tooltip-dialogs.css">
+    <link rel="stylesheet" type="text/css" href="css/conversation.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+      <!-- endbuild -->
+    <script src="js/cmds.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/sidebar.js"></script>
+
+    <script src="js/conversation.js"></script>
+    <script src="js/conversationResponse.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/manualInit.js"></script>
+    <!-- endbuild -->
+    <script src="ibm/watson-speech.min.js"></script>
+    <script src="ibm/speech-to-text.js"></script>
+    <script src="ibm/text-to-speech.js"></script>
+
 
 </body>
 </html>

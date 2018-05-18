@@ -213,28 +213,6 @@ cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready", /
 
 
 
-
-         voiceOnBtnClick2: function(evt) {
-        /*
-            // if (annyang) {
-            // Let's define a command.
-            var commands = {
-            'hello': function() { alert('Hello world!'); }
-            };
-
-              // Add our commands to annyang
-              annyang.addCommands(commands);
-
-              // Start listening.
-              annyang.start();
-          //  }
-
-
-            chilipeppr.publish('/com-chilipeppr-elem-flashmsg/flashmsg', "Voice Control Acticve", "......", 3000 );
-            */
-        },
-
-
         voiceOnBtnClick: function(evt) {
             //turn On button to red
             $('#' + this.id + ' .btn-voiceOn').addClass('danger');

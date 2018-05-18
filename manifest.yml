@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: watsonCNCcontrol_v4
+  host: watsonCNCcontrol_v4
+  disk_quota: 1024M
+  services:
+    - Speech to Text-fw
+    - Text to Speech-qi
+    - conversation-cinco-conversati-1521555088095
