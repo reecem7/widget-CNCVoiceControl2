@@ -1446,7 +1446,7 @@ var generateInlinedFile = function() {
   // URL to this widget. This file should get checked into Github and should
   // be the file that is loaded by ChiliPeppr.
   var fileCss = fs.readFileSync("widget.css").toString();
-  var fileHtml = fs.readFileSync("widget.html").toString();
+  var fileHtml = fs.readFileSync("ui/widget.html").toString();
   var fileJs = widgetSrc; // fs.readFileSync("widget.js").toString();
 
   // auto fill title if they're asking for it
