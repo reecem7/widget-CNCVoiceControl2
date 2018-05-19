@@ -28,7 +28,7 @@ require('dotenv').config({silent: true});
     // const PORT = 3000;
     // app.listen(PORT);
     // console.log("Running at Port 3000");
-    var port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
+    var port = process.env.PORT || process.env.VCAP_APP_PORT || 3001;
     app.listen(port, function() {
       // eslint-disable-next-line
       console.log('Server running on port: %d', port);

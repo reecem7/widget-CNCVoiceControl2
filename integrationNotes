@@ -1,0 +1,23 @@
+watsonCNCcontrol_v4 - Chilipeppr Widget Integration notes
+
+//Goal is to merge existing watson app that works as a standalone full page application into a chilipeppr widget
+
+Chilipeppr-Widget File Structure notes
+  consists of 3 main files: JS, CSS, and html
+      html loads the css and js files (static files) but also has place holders for when runme.js inlines the files instead and removes the scritps to load the js and css
+
+  These files are combined using runme.js into a giant html file.
+      run runme.js using node
+      once running, you can regenerate the auto-gen html file and also preview the widget locally for testing
+
+  This file, auto-generated-widget.html is loaded by the ChiliPeppr Workspace from the github
+
+Standard Node.js structure:
+  Html file loads static files using scripts
+
+  Main entry point js file (app.js or index.js) loads the server side files as modules and routes request to the main webpage/html page accordingly
+
+
+runme.js file changes
+
+  line 1503-1504   var fileHtml = fs.readFileSync("ui/widget.html").toString();

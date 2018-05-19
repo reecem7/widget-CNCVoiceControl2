@@ -35,233 +35,233 @@ const path = require('path');
 const app = express();
 
 
-app.use(express.static(__dirname));
-
-  app.get('/',function(req,res){
-
-      //var html = getMainPage();
-      res.writeHead(200, {
-        'Content-Type': 'text/html'
-      });
-
-      var htmlDocs = generateWidgetDocs();
-
-      var notes = "";
-      notes += "<p>Click refresh to regenerate README.md, " + fileAutoGeneratePath + ", and push updates to Github.</p>";
-      generateWidgetReadme();
-      notes += "<p>Generated a new README.md file...</p>";
-      generateInlinedFile();
-      notes += "<p>Generated a new " + fileAutoGeneratePath + " file...</p>";
-      //pushToGithub();
-      //pushToGithubSync();
-      pushToGithubAsync();
-      notes += "<p>Pushed updates to Github...</p>";
-
-      //html = html + htmlDocs;
-      var finalHtml = htmlDocs.replace(/<!-- pre-notes -->/, notes);
-
-      res.end(finalHtml);
-  });
-
-  app.get('/workspace.html',function(req,res){
-
-    res.status(200).sendFile(path.join(__dirname + '/workspace.html'));
-
-  });
-
-var port = 3001;
-app.listen(port, function() {
-  // eslint-disable-next-line
-  console.log('Server running on port: %d', port);
-});
+// app.use(express.static(__dirname));
+//
+//   app.get('/',function(req,res){
+//
+//       //var html = getMainPage();
+//       res.writeHead(200, {
+//         'Content-Type': 'text/html'
+//       });
+//
+//       var htmlDocs = generateWidgetDocs();
+//
+//       var notes = "";
+//       notes += "<p>Click refresh to regenerate README.md, " + fileAutoGeneratePath + ", and push updates to Github.</p>";
+//       generateWidgetReadme();
+//       notes += "<p>Generated a new README.md file...</p>";
+//       generateInlinedFile();
+//       notes += "<p>Generated a new " + fileAutoGeneratePath + " file...</p>";
+//       //pushToGithub();
+//       //pushToGithubSync();
+//       pushToGithubAsync();
+//       notes += "<p>Pushed updates to Github...</p>";
+//
+//       //html = html + htmlDocs;
+//       var finalHtml = htmlDocs.replace(/<!-- pre-notes -->/, notes);
+//
+//       res.end(finalHtml);
+//   });
+//
+//   app.get('/widget.html',function(req,res){
+//
+//     res.status(200).sendFile(path.join(__dirname + '/ui/widget.html'));
+//
+//   });
+//
+// var port = 3001;
+// app.listen(port, function() {
+//   // eslint-disable-next-line
+//   console.log('Server running on port: %d', port);
+// });
 // var server = https.createServer(certOptions, app).listen(port);
 // console.log('Server running on port: %d', port);
 
 
 
-// http.createServer(function(req, res) {
-//
-//   var uri = url.parse(req.url).pathname;
-//   console.log("URL being requested:", uri);
-//
-//   if (uri == "/") {
-//
-//     res.writeHead(200, {
-//       'Content-Type': 'text/html'
-//     });
-//
-//     //var html = getMainPage();
-//     var htmlDocs = generateWidgetDocs();
-//
-//     var notes = "";
-//     notes += "<p>Click refresh to regenerate README.md, auto-generated-widget.html, and push updates to Github.</p>";
-//     generateWidgetReadme();
-//     notes += "<p>Generated a new README.md file...</p>";
-//     generateInlinedFile();
-//     notes += "<p>Generated a new auto-generated-widget.html file...</p>";
-//     //pushToGithub();
-//     //pushToGithubSync();
-//     pushToGithubAsync();
-//     notes += "<p>Pushed updates to Github...</p>";
-//
-//     //html = html + htmlDocs;
-//     var finalHtml = htmlDocs.replace(/<!-- pre-notes -->/, notes);
-//
-//     res.end(finalHtml);
-//
-//   }
-//   else if (uri == "/uploadscreenshot") {
-//     console.log("screenshot being uploaded. ");
-//
-//     if (req.method == 'POST') {
-//         var body = '';
-//         req.on('data', function (data) {
-//             body += data;
-//             // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
-//             if (body.length > 1e6) {
-//                 // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
-//                 req.connection.destroy();
-//             }
-//         });
-//         req.on('end', function () {
-//
-//             //console.log("body:", body);
-//             var POST = qs.parse(body);
-//             // use POST
-//             console.log("done with POST:", POST);
-//             var data_url = POST.imgBase64;
-//             var matches = data_url.match(/.*?;base64,(.*)$/);
-//             //var ext = matches[1];
-//             var base64_data = matches[1];
-//             var buffer = new Buffer(base64_data, 'base64');
-//             console.log("about to write file...");
-//
-//             fs.writeFile("screenshot.png", buffer,  function (err) {
-//                 if (err) throw err;
-//
-//                 //res.send('success');
-//                 var json = {
-//                   success: true,
-//                   desc: "Saved screenshot.png",
-//                   //log: stdout
-//                 }
-//
-//                 res.writeHead(200, {
-//                   'Content-Type': 'application/json'
-//                 });
-//                 res.end(JSON.stringify(json));
-//                 console.log('done uploading screenshot');
-//             });
-//
-//         });
-//     }
-//
-//   }
-//   else if (uri == "/pushtogithub") {
-//
-//     var url_parts = url.parse(req.url,true);
-//     console.log(url_parts.query);
-//
-//     console.log("/pushtogithub called");
-//
-//     var stdout = pushToGithubSync(url_parts.query.message)
-//
-//     var json = {
-//       success: true,
-//       desc: "Pushed to Github",
-//       log: stdout
-//     }
-//
-//     res.writeHead(200, {
-//       'Content-Type': 'application/json'
-//     });
-//     res.end(JSON.stringify(json));
-//   }
-//   else if (uri == "/pullfromgithub") {
-//
-//     console.log("/pullfromgithub called");
-//
-//     var stdout = pullFromGithubSync();
-//
-//     var json = {
-//       success: true,
-//       desc: "Pulled from Github",
-//       log: stdout
-//     }
-//
-//     res.writeHead(200, {
-//       'Content-Type': 'application/json'
-//     });
-//     res.end(JSON.stringify(json));
-//
-//   }
-//   else if (uri == "/mergeFromCpTemplateRepo") {
-//
-//     console.log("/mergeFromCpTemplateRepo called");
-//
-//     var stdout = mergeFromCpTemplateRepo();
-//
-//     var json = {
-//       success: true,
-//       desc: "Merged the latest ChiliPeppr Template to this repo. Please check for merge conflicts. You can run \"git status\" for a summary of conflicts, if any.",
-//       log: stdout
-//     }
-//
-//     res.writeHead(200, {
-//       'Content-Type': 'application/json'
-//     });
-//     res.end(JSON.stringify(json));
-//
-//   } else {
-//
-//     var filename = path.join(process.cwd(), unescape(uri));
-//     var stats;
-//
-//     try {
-//       stats = fs.lstatSync(filename); // throws if path doesn't exist
-//     }
-//     catch (e) {
-//       res.writeHead(404, {
-//         'Content-Type': 'text/plain'
-//       });
-//       res.write('404 Not Found\n');
-//       res.end();
-//       return;
-//     }
-//
-//     if (stats.isFile()) {
-//       // path exists, is a file
-//       var mimeType = mimeTypes[path.extname(filename).split(".").reverse()[0]];
-//       res.writeHead(200, {
-//         'Content-Type': mimeType
-//       });
-//
-//       var fileStream = fs.createReadStream(filename);
-//       fileStream.pipe(res);
-//     }
-//     else if (stats.isDirectory()) {
-//       // path exists, is a directory
-//       res.writeHead(200, {
-//         'Content-Type': 'text/plain'
-//       });
-//       res.write('Index of ' + uri + '\n');
-//       res.write('TODO, show index?\n');
-//       res.end();
-//     }
-//     else {
-//       // Symbolic link, other?
-//       // TODO: follow symlinks?  security?
-//       res.writeHead(500, {
-//         'Content-Type': 'text/plain'
-//       });
-//       res.write('500 Internal server error\n');
-//       res.end();
-//     }
-//
-//   }
-//
-// }).listen(3001);
-// console.log('Server running on port: %d', 3001);
+http.createServer(function(req, res) {
+
+  var uri = url.parse(req.url).pathname;
+  console.log("URL being requested:", uri);
+
+  if (uri == "/") {
+
+    res.writeHead(200, {
+      'Content-Type': 'text/html'
+    });
+
+    //var html = getMainPage();
+    var htmlDocs = generateWidgetDocs();
+
+    var notes = "";
+    notes += "<p>Click refresh to regenerate README.md, auto-generated-widget.html, and push updates to Github.</p>";
+    generateWidgetReadme();
+    notes += "<p>Generated a new README.md file...</p>";
+    generateInlinedFile();
+    notes += "<p>Generated a new auto-generated-widget.html file...</p>";
+    //pushToGithub();
+    //pushToGithubSync();
+    pushToGithubAsync();
+    notes += "<p>Pushed updates to Github...</p>";
+
+    //html = html + htmlDocs;
+    var finalHtml = htmlDocs.replace(/<!-- pre-notes -->/, notes);
+
+    res.end(finalHtml);
+
+  }
+  else if (uri == "/uploadscreenshot") {
+    console.log("screenshot being uploaded. ");
+
+    if (req.method == 'POST') {
+        var body = '';
+        req.on('data', function (data) {
+            body += data;
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6) {
+                // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
+                req.connection.destroy();
+            }
+        });
+        req.on('end', function () {
+
+            //console.log("body:", body);
+            var POST = qs.parse(body);
+            // use POST
+            console.log("done with POST:", POST);
+            var data_url = POST.imgBase64;
+            var matches = data_url.match(/.*?;base64,(.*)$/);
+            //var ext = matches[1];
+            var base64_data = matches[1];
+            var buffer = new Buffer(base64_data, 'base64');
+            console.log("about to write file...");
+
+            fs.writeFile("screenshot.png", buffer,  function (err) {
+                if (err) throw err;
+
+                //res.send('success');
+                var json = {
+                  success: true,
+                  desc: "Saved screenshot.png",
+                  //log: stdout
+                }
+
+                res.writeHead(200, {
+                  'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify(json));
+                console.log('done uploading screenshot');
+            });
+
+        });
+    }
+
+  }
+  else if (uri == "/pushtogithub") {
+
+    var url_parts = url.parse(req.url,true);
+    console.log(url_parts.query);
+
+    console.log("/pushtogithub called");
+
+    var stdout = pushToGithubSync(url_parts.query.message)
+
+    var json = {
+      success: true,
+      desc: "Pushed to Github",
+      log: stdout
+    }
+
+    res.writeHead(200, {
+      'Content-Type': 'application/json'
+    });
+    res.end(JSON.stringify(json));
+  }
+  else if (uri == "/pullfromgithub") {
+
+    console.log("/pullfromgithub called");
+
+    var stdout = pullFromGithubSync();
+
+    var json = {
+      success: true,
+      desc: "Pulled from Github",
+      log: stdout
+    }
+
+    res.writeHead(200, {
+      'Content-Type': 'application/json'
+    });
+    res.end(JSON.stringify(json));
+
+  }
+  else if (uri == "/mergeFromCpTemplateRepo") {
+
+    console.log("/mergeFromCpTemplateRepo called");
+
+    var stdout = mergeFromCpTemplateRepo();
+
+    var json = {
+      success: true,
+      desc: "Merged the latest ChiliPeppr Template to this repo. Please check for merge conflicts. You can run \"git status\" for a summary of conflicts, if any.",
+      log: stdout
+    }
+
+    res.writeHead(200, {
+      'Content-Type': 'application/json'
+    });
+    res.end(JSON.stringify(json));
+
+  } else {
+
+    var filename = path.join(process.cwd(), unescape(uri));
+    var stats;
+
+    try {
+      stats = fs.lstatSync(filename); // throws if path doesn't exist
+    }
+    catch (e) {
+      res.writeHead(404, {
+        'Content-Type': 'text/plain'
+      });
+      res.write('404 Not Found\n');
+      res.end();
+      return;
+    }
+
+    if (stats.isFile()) {
+      // path exists, is a file
+      var mimeType = mimeTypes[path.extname(filename).split(".").reverse()[0]];
+      res.writeHead(200, {
+        'Content-Type': mimeType
+      });
+
+      var fileStream = fs.createReadStream(filename);
+      fileStream.pipe(res);
+    }
+    else if (stats.isDirectory()) {
+      // path exists, is a directory
+      res.writeHead(200, {
+        'Content-Type': 'text/plain'
+      });
+      res.write('Index of ' + uri + '\n');
+      res.write('TODO, show index?\n');
+      res.end();
+    }
+    else {
+      // Symbolic link, other?
+      // TODO: follow symlinks?  security?
+      res.writeHead(500, {
+        'Content-Type': 'text/plain'
+      });
+      res.write('500 Internal server error\n');
+      res.end();
+    }
+
+  }
+
+}).listen(3001);
+console.log('Server running on port: %d', 3001);
 
 // }).listen(process.env.PORT);
 
@@ -1501,7 +1501,7 @@ var generateInlinedFile = function() {
   // URL to this widget. This file should get checked into Github and should
   // be the file that is loaded by ChiliPeppr.
   var fileCss = fs.readFileSync("widget.css").toString();
-  var fileHtml = fs.readFileSync("ui/widget.html").toString();
+  var fileHtml = fs.readFileSync("widget.html").toString();
   var fileJs = widgetSrc; // fs.readFileSync("widget.js").toString();
 
   // auto fill title if they're asking for it

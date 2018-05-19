@@ -44,22 +44,43 @@
                 <!-- Tab 1 -->
                 <div class="tab-pane active" id="com-chilipeppr-widget-CNCVoiceControl2-tab1">
 
-                    <div class="textlog-body" >
-                        <table>
-                          <th>Watson</th>
-                          <tr>
-                            <td><button type="button" class="btn btn-xs btn-default btn-voiceOn">Voice Control On</button></td>
-                            <td><button type="button" class="btn btn-xs btn-default btn-voiceOff">Voice Control Off</button></td>
-                         </tr>
-                        </table>
-                          <!--<br><label for="output">You said: </label><input type="textbox" name="output"></input>-->
-                          <br><span>You said: </span>
-                          <div id= "text">... <span></span> . </div>
-                          <span>Command: </span>
-                          <div id= "textCommand">... <span></span> . </div>
-                          <span>Text Events: </span>
-                          <div id= "textEvents">... <span></span> . </div>
-                    </div>
+                    <div> Start Of New Ui </div>
+
+                      <div id="svg_wrapper">
+                        <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
+                        <button id="help" class="tooltip-dialog-btn" onclick="Sidebar.toggle()">What can I ask?</button>
+                        <div id="svg_size">
+                            <svg id="svg_canvas" viewBox="0 0 1024 704" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
+                        </div>
+                        <div class="chatUi">
+                            <div id="chat-scroll-wrapper"><div id="chat-flow"></div></div>
+                            <div id="input-wrapper" class="responsive-columns-wrapper">
+                                <div id="input-mic-holder">
+                                    <div id="input-mic" class="inactive-mic" onclick="STTModule.micON()"></div>
+                                    <!-- <div id="start-btn">
+                                        <div id="input-mic" class="inactive-mic" onclick="STTModule.micON()"></div> -->
+                                </div>
+
+                                <label for="user-input" class="input-outline responsive-column">
+                                  <input id="user-input" type="text" placeholder="Type something, e.g. “Turn the headlights on”">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- <button onclick="Api.initConversation()">Start</button> -->
+                        <button onclick="ManualInit()">Start Service</button>
+
+                        <div id="tooltip-dialog-list"></div>
+                        <div id="sidebar">
+                            <div class="close-div" onclick="Sidebar.toggle()">
+                                <img src="images/close-button.png" class="close" alt="close" />
+                            </div>
+                            <p class="pre-bar">I’m trained on these commands:</p>
+                            <ul id="suggestion-list"></ul>
+                            <p class="pre-bar">I’m trained on these routines:</p>
+                            <ul id="routine-list"></ul>
+                        </div>
+
                 </div>
                 <!-- Tab 2 -->
                 <div class="tab-pane" id="com-chilipeppr-widget-CNCVoiceControl2-tab2">
@@ -98,26 +119,26 @@
     <script type='text/javascript' src="widget.js"></script>
     <!-- DON'T REMOVE end widget.js -->
 
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/tooltip-dialogs.css">
     <link rel="stylesheet" type="text/css" href="css/conversation.css">
     <link rel="stylesheet" type="text/css" href="css/sidebar.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css"> -->
       <!-- endbuild -->
-    <script src="js/cmds.js"></script>
+    <!-- <script src="js/cmds.js"></script>
     <script src="js/common.js"></script>
     <script src="js/api.js"></script>
-    <script src="js/sidebar.js"></script>
+    <script src="js/sidebar.js"></script> -->
 
-    <script src="js/conversation.js"></script>
+    <!-- <script src="js/conversation.js"></script>
     <script src="js/conversationResponse.js"></script>
     <script src="js/global.js"></script>
-    <script src="js/manualInit.js"></script>
+    <script src="js/manualInit.js"></script> -->
     <!-- endbuild -->
-    <script src="ibm/watson-speech.min.js"></script>
+    <!-- <script src="ibm/watson-speech.min.js"></script>
     <script src="ibm/speech-to-text.js"></script>
-    <script src="ibm/text-to-speech.js"></script>
+    <script src="ibm/text-to-speech.js"></script> -->
 
 
 </body>
