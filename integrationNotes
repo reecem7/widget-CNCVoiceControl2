@@ -20,4 +20,6 @@ Standard Node.js structure:
 
 runme.js file changes
 
+  line 290   widgetSrc = fs.readFileSync('ui/widget.js')+'';
+
   line 1503-1504   var fileHtml = fs.readFileSync("ui/widget.html").toString();

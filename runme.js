@@ -287,7 +287,7 @@ var evalWidgetJs = function() {
   // This method reads in your widget.js and evals it to
   // figure out all the info from it to generate docs and sample
   // code to make your life easy
-  widgetSrc = fs.readFileSync('widget.js')+'';
+  widgetSrc = fs.readFileSync('ui/widget.js')+'';
 
   // fill in some auto fill stuff
   var widgetUrl = 'http://' +
@@ -1500,8 +1500,8 @@ var generateInlinedFile = function() {
   // it to make things clean when chilipeppr.load() is called with a single
   // URL to this widget. This file should get checked into Github and should
   // be the file that is loaded by ChiliPeppr.
-  var fileCss = fs.readFileSync("widget.css").toString();
-  var fileHtml = fs.readFileSync("widget.html").toString();
+  var fileCss = fs.readFileSync("ui/widget.css").toString();
+  var fileHtml = fs.readFileSync("ui/widget.html").toString();
   var fileJs = widgetSrc; // fs.readFileSync("widget.js").toString();
 
   // auto fill title if they're asking for it

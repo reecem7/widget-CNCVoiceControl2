@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <title><!--(auto-fill by runme.js--></title>
+</head>
+
+<body>
+    <div id="com-chilipeppr-widget-CNCVoiceControl2" class="panel panel-default">
+        <div class="panel-heading ">
+
+            <div class="btn-toolbar pull-right" role="toolbar">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-xs btn-default btn-sayhello" data-delay="1000" data-animation="true" data-placement="auto" data-container="body" data-trigger="hover" data-title="Say Hello" data-content="Generate a hello message">Say Hello
+                    </button>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-xs btn-default hidebody"><span class="glyphicon glyphicon-chevron-up"></span>
+                    </button>
+                </div>
+                <div class="btn-group">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
+                    </div>
+                </div>
+            </div> <span class="panel-title" data-toggle="popover">Voice Control Widget</span> <span style="font-size:9px;" class="fb-build">v1</span>
+
+        </div>
+        <div class="panel-body">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#com-chilipeppr-widget-CNCVoiceControl2-tab1" role="tab" data-toggle="tab">Control</a></li>
+                <li><a href="#com-chilipeppr-widget-CNCVoiceControl2-tab2" role="tab" data-toggle="tab">Speeds & Feeds</a></li>
+                <li><a href="#com-chilipeppr-widget-CNCVoiceControl2-tab3" role="tab" data-toggle="tab">Settings</a></li>
+            </ul>
+            <!-- Tab panes -->
+
+            <div class="tab-content">
+
+                <!-- Tab 1 -->
+                <div class="tab-pane active" id="com-chilipeppr-widget-CNCVoiceControl2-tab1">
+
+                    <div> Start Of New Ui </div>
+
+                      <div id="svg_wrapper">
+                        <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
+                        <button id="help" class="tooltip-dialog-btn" onclick="Sidebar.toggle()">What can I ask?</button>
+                        <div id="svg_size">
+                            <svg id="svg_canvas" viewBox="0 0 1024 704" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
+                        </div>
+                        <div class="chatUi">
+                            <div id="chat-scroll-wrapper"><div id="chat-flow"></div></div>
+                            <div id="input-wrapper" class="responsive-columns-wrapper">
+                                <div id="input-mic-holder">
+                                    <div id="input-mic" class="inactive-mic" onclick="STTModule.micON()"></div>
+                                    <!-- <div id="start-btn">
+                                        <div id="input-mic" class="inactive-mic" onclick="STTModule.micON()"></div> -->
+                                </div>
+
+                                <label for="user-input" class="input-outline responsive-column">
+                                  <input id="user-input" type="text" placeholder="Type something, e.g. “Turn the headlights on”">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- <button onclick="Api.initConversation()">Start</button> -->
+                        <button onclick="ManualInit()">Start Service</button>
+
+                        <div id="tooltip-dialog-list"></div>
+                        <div id="sidebar">
+                            <div class="close-div" onclick="Sidebar.toggle()">
+                                <img src="images/close-button.png" class="close" alt="close" />
+                            </div>
+                            <p class="pre-bar">I’m trained on these commands:</p>
+                            <ul id="suggestion-list"></ul>
+                            <p class="pre-bar">I’m trained on these routines:</p>
+                            <ul id="routine-list"></ul>
+                        </div>
+
+                </div>
+                <!-- Tab 2 -->
+                <div class="tab-pane" id="com-chilipeppr-widget-CNCVoiceControl2-tab2">
+                </div>
+
+                <!-- Tab 3 -->
+                <div class="tab-pane" id="com-chilipeppr-widget-CNCVoiceControl2-tab3">
+                    <p> </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ChiliPeppr is based on bootstrap CSS. -->
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Customized version of require.js for ChiliPeppr. Please see require.js docs for how
+    ChiliPeppr's dependency system works as it's based on require.js. -->
+    <script type='text/javascript' src="//i2dcui.appspot.com/js/require.js"></script>
+
+    <!-- widget.css DON'T REMOVE -->
+    <style type='text/css'>
+        /* widget.css will get inlined here by runme.js. don't remove this comment or inlining will fail. */
+    </style>
+    <link rel="stylesheet" type="text/css" href="widget.css">
+    <!-- DON'T REMOVE end widget.css -->
+
+    <!-- widget.js DON'T REMOVE -->
+    <script type='text/javascript'>
+        //<![CDATA[
+        /* widget.js will get inlined here by runme.js. don't remove this comment or inlining will fail. */
+        //]]>
+    </script>
+    <script type='text/javascript' src="widget.js"></script>
+    <!-- DON'T REMOVE end widget.js -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/tooltip-dialogs.css">
+    <link rel="stylesheet" type="text/css" href="css/conversation.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css"> -->
+      <!-- endbuild -->
+    <!-- <script src="js/cmds.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/sidebar.js"></script> -->
+
+    <!-- <script src="js/conversation.js"></script>
+    <script src="js/conversationResponse.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/manualInit.js"></script> -->
+    <!-- endbuild -->
+    <!-- <script src="ibm/watson-speech.min.js"></script>
+    <script src="ibm/speech-to-text.js"></script>
+    <script src="ibm/text-to-speech.js"></script> -->
+
+
+</body>
+</html>
