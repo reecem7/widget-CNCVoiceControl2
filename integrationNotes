@@ -18,8 +18,19 @@ Standard Node.js structure:
   Main entry point js file (app.js or index.js) loads the server side files as modules and routes request to the main webpage/html page accordingly
 
 
-runme.js file changes
+/////////////////////////////////
+Changes once watsonCNCcontrol_v4 was pasted into this widget
 
-  line 290   widgetSrc = fs.readFileSync('ui/widget.js')+'';
+  1. Erased old speech to text functions from CNCVoiceControl from HTML, CSS, and js files
 
-  line 1503-1504   var fileHtml = fs.readFileSync("ui/widget.html").toString();
+  2. Pasted body and dependencies from index.html into widget.html
+
+  3. commented out dependencies from pasted portion that will have to be loaded into new html file for watson services/static functions
+
+  4. Moved widget html, cs, and js files into /ui folder
+
+  5. runme.js file changes
+
+    line 290   widgetSrc = fs.readFileSync('ui/widget.js')+'';
+
+    line 1503-1504   var fileHtml = fs.readFileSync("ui/widget.html").toString();
