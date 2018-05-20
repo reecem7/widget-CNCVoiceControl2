@@ -270,13 +270,12 @@ requirejs.config({
         // Example of how to define the key (you make up the key) and the URL
         // Make sure you DO NOT put the .js at the end of the URL
         // SmoothieCharts: '//smoothiecharts.org/smoothie',
-        expressConfig: './config/express'
-
-        // require('./routes/conversation.js')(app);
-        // require('./routes/speech-to-text')(app);
-        // require('./routes/text-to-speech')(app);
-        // // require('./ui/css/main.css');
-        // require('./config/error-handler')(app);
+        expressConfig: './config/express',
+        conversation: './routes/conversation.js',
+        stt: './routes/speech-to-text',
+        tts: './routes/text-to-speech',
+         // require('./ui/css/main.css');
+        errorHandler: './config/error-handler'
     },
     shim: {
         // See require.js docs for how to define dependencies that
