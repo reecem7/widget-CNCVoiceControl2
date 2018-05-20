@@ -212,7 +212,21 @@ http.createServer(function(req, res) {
     });
     res.end(JSON.stringify(json));
 
-  } else {
+
+  }
+  else if (uri == "/config/express.js") {
+
+    console.log("/config/express.js being called");
+
+    // res.writeHead(200, {
+    //   'Content-Type': mimeType
+    // });
+
+        res.status(200).sendFile(path.join(__dirname + '/config/express.js'));
+
+  }
+
+   else {
 
     var filename = path.join(process.cwd(), unescape(uri));
     var stats;
