@@ -323,7 +323,7 @@ cprequire_test(["inline:com-chilipeppr-widget-CNCVoiceControl2"], function(myWid
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready", /* other dependencies here */ ], function() {
+cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready", 'expressConfig', 'conversation', 'stt', 'tts', 'errorHandler'/* other dependencies here */ ], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
