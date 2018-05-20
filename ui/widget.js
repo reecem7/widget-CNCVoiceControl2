@@ -28,7 +28,7 @@ requirejs.config({
         // Make sure you DO NOT put the .js at the end of the URL
         // SmoothieCharts: '//smoothiecharts.org/smoothie',
         expressConfig: './config/express',
-        conversation: './routes/conversation.js',
+        conversation: './routes/conversation.',
         stt: './routes/speech-to-text',
         tts: './routes/text-to-speech',
          // require('./ui/css/main.css');
@@ -80,7 +80,7 @@ cprequire_test(["inline:com-chilipeppr-widget-CNCVoiceControl2"], function(myWid
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready", 'expressConfig', 'conversation', 'stt', 'tts', 'errorHandler'/* other dependencies here */ ], function() {
+cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready", 'expressConfig', 'conversation', 'stt', 'tts', 'errorHandler'/* other dependencies here */ ], function(expressConfig) {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
