@@ -224,6 +224,16 @@ http.createServer(function(req, res) {
 
         res.status(200).sendFile(path.join(__dirname + '/config/express.js'));
 
+  }else if (uri == "/js/conversationAMD.js") {
+
+    console.log("/js/conversationAMD.js");
+
+    // res.writeHead(200, {
+    //   'Content-Type': mimeType
+    // });
+
+        res.status(200).sendFile(path.join(__dirname + '/js/conversationAMD.js'));
+
   }
 
    else {

@@ -27,11 +27,12 @@ requirejs.config({
         // Example of how to define the key (you make up the key) and the URL
         // Make sure you DO NOT put the .js at the end of the URL
         // SmoothieCharts: '//smoothiecharts.org/smoothie',
-        conversation: './routes/conversation.'
+        conversation: 'js/conversationAMD',
         // stt: './routes/speech-to-text',
         // tts: './routes/text-to-speech',
         //  // require('./ui/css/main.css');
         // errorHandler: './config/error-handler'
+        cmds: 'js/cmds'
     },
     shim: {
         // See require.js docs for how to define dependencies that
@@ -79,9 +80,9 @@ cprequire_test(["inline:com-chilipeppr-widget-CNCVoiceControl2"], function(myWid
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
-  //'conversation',
-  //'stt',
+cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready"
+  // ,'conversation'
+  ,'cmds'
    //'tts',
   // 'errorHandler'
  /* other dependencies here */ ], function() {
@@ -226,7 +227,7 @@ cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
         voiceOnBtnClick: function(evt) {
 
           console.log('Voice Control Enabled');
-          Api.initConversation(); // Load initial Watson greeting after overlays are gone.
+          // Api.initConversation(); // Load initial Watson greeting after overlays are gone.
           // function hideOverlays() {
           //   var darkOverlay = document.getElementById(ids.darkOverlay);
           //   var clearOverlay = document.getElementById(ids.clearOverlay);
@@ -234,7 +235,7 @@ cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
           //   Common.addClass(clearOverlay, classes.hide);
           // }
           // hideOverlays();
-          Conversation.focusInput();
+          // Conversation.focusInput();
                  // chilipeppr.publish(
                  //    '/com-chilipeppr-elem-flashmsg/flashmsg',
                  //    "Voice Control Acticve",

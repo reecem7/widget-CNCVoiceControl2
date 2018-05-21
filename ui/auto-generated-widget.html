@@ -277,11 +277,12 @@ requirejs.config({
         // Example of how to define the key (you make up the key) and the URL
         // Make sure you DO NOT put the .js at the end of the URL
         // SmoothieCharts: '//smoothiecharts.org/smoothie',
-        conversation: './routes/conversation.'
+        conversation: 'js/conversationAMD',
         // stt: './routes/speech-to-text',
         // tts: './routes/text-to-speech',
         //  // require('./ui/css/main.css');
         // errorHandler: './config/error-handler'
+        cmds: 'js/cmds'
     },
     shim: {
         // See require.js docs for how to define dependencies that
@@ -329,9 +330,9 @@ cprequire_test(["inline:com-chilipeppr-widget-CNCVoiceControl2"], function(myWid
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
-  //'conversation',
-  //'stt',
+cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready"
+  // ,'conversation'
+  ,'cmds'
    //'tts',
   // 'errorHandler'
  /* other dependencies here */ ], function() {
@@ -476,7 +477,7 @@ cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
         voiceOnBtnClick: function(evt) {
 
           console.log('Voice Control Enabled');
-          Api.initConversation(); // Load initial Watson greeting after overlays are gone.
+          // Api.initConversation(); // Load initial Watson greeting after overlays are gone.
           // function hideOverlays() {
           //   var darkOverlay = document.getElementById(ids.darkOverlay);
           //   var clearOverlay = document.getElementById(ids.clearOverlay);
@@ -484,7 +485,7 @@ cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
           //   Common.addClass(clearOverlay, classes.hide);
           // }
           // hideOverlays();
-          Conversation.focusInput();
+          // Conversation.focusInput();
                  // chilipeppr.publish(
                  //    '/com-chilipeppr-elem-flashmsg/flashmsg',
                  //    "Voice Control Acticve",
@@ -658,12 +659,14 @@ cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
     <!-- <link rel="stylesheet" type="text/css" href="css/font.css"> -->
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
       <!-- endbuild -->
-    <script src="js/cmds.js"></script>
+    <!-- <script src="js/cmds.js"></script> -->
     <script src="js/common.js"></script>
     <script src="js/api.js"></script>
     <!-- <script src="js/sidebar.js"></script> -->
 
     <script src="js/conversation.js"></script>
+    <!-- <script src="js/conversationAMD.js"></script> -->
+
     <script src="js/conversationResponse.js"></script>
     <script src="js/global.js"></script>
     <script src="js/manualInit.js"></script>
