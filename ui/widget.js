@@ -27,8 +27,7 @@ requirejs.config({
         // Example of how to define the key (you make up the key) and the URL
         // Make sure you DO NOT put the .js at the end of the URL
         // SmoothieCharts: '//smoothiecharts.org/smoothie',
-        expressConfig: './config/express',
-        // conversation: './routes/conversation.',
+        conversation: './routes/conversation.'
         // stt: './routes/speech-to-text',
         // tts: './routes/text-to-speech',
         //  // require('./ui/css/main.css');
@@ -81,7 +80,6 @@ cprequire_test(["inline:com-chilipeppr-widget-CNCVoiceControl2"], function(myWid
 
 // This is the main definition of your widget. Give it a unique name.
 cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
- './config/express'
   //'conversation',
   //'stt',
    //'tts',
@@ -226,90 +224,22 @@ cpdefine("inline:com-chilipeppr-widget-CNCVoiceControl2", ["chilipeppr_ready",
 
 
         voiceOnBtnClick: function(evt) {
-            //turn On button to red
-            $('#' + this.id + ' .btn-voiceOn').addClass('danger');
-            var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-           // var grammar = '#JSGF V1.0; grammar colors; public <color> = blue | red | black ... ;';
-           // var recognition = new window.webkitSpeechRecognition();
-           // var speechRecognitionList = new window.webkitSpeechGrammarList();
-           // speechRecognitionList.addFromString(grammar, 1);
-           // recognition.grammars = speechRecognitionList;
 
-
-            recognition.lang = 'en-US';
-            //recognition.continuous = false; //default is false
-            recognition.interimResults = false; //default is false
-            recognition.maxAlternatives = 1;
-            var i = 0;
-
-
-
-            recognition.start();
-            var txtEvents = document.getElementById('textEvents');
-            var eventArray = [];
-            [
-             'onaudiostart',
-             'onaudioend',
-             'onend',
-             'onerror',
-             'onnomatch',
-             'onresult',
-             'onsoundstart',
-             'onsoundend',
-             'onspeechend',
-             'onstart'
-              ].forEach(function(eventName) {
-                recognition[eventName] = function(e) {
-                  // txtEvents.innerHTML = eventName, e;
-                    eventArray.push( eventName + "<br>");
-                    txtEvents.innerHTML = eventArray.join('\r\n');
-                    };
-
-                }
-                );
-
-                    var txt = document.getElementById('text');
-                    var txtCmd = document.getElementById('textCommand');
-                    recognition.onresult = function(event) {
-
-                         txt.innerHTML = event.results[0][0].transcript;
-                         var textCheck = txt.innerHTML;
-
-                        if(textCheck==="Texas" ){
-
-                                 txtCmd.innerHTML = "Jogging X-Axis 1mm";
-                                 var gcode = "G91 G0 X1";
-                                gcode += "\nG90\n";
-                                chilipeppr.publish("/com-chilipeppr-widget-serialport/send", gcode);
-                                 i = 1;
-
-                        } else {
-                            txtCmd.innerHTML = "No Match";
-                            recognition.start();
-
-                        }
-
-                    };
-
-                        /*
-                         chilipeppr.publish(
-                            '/com-chilipeppr-elem-flashmsg/flashmsg',
-                            'You said: ', event.results[0][0].transcript,
-                            3000);
-                        */
-
-                // document.getElementsByName('output')[0].value = event.results[0][0].transcript;
-
-              //var txtOutput = "Yay1 I cant wait to hand with my friends and see what they are doing for the holidays and af";
-              //var txt = document.getElementById('text');
-              //txt.innerHTML = txtOutput;
-              // document.getElementsByName('textlog-console')[0].value= txtOutput;
-
-                 chilipeppr.publish(
-                    '/com-chilipeppr-elem-flashmsg/flashmsg',
-                    "Voice Control Acticve",
-                    "......",
-                    3000 );
+          console.log('Voice Control Enabled');
+          Api.initConversation(); // Load initial Watson greeting after overlays are gone.
+          // function hideOverlays() {
+          //   var darkOverlay = document.getElementById(ids.darkOverlay);
+          //   var clearOverlay = document.getElementById(ids.clearOverlay);
+          //   Common.addClass(darkOverlay, classes.hide);
+          //   Common.addClass(clearOverlay, classes.hide);
+          // }
+          // hideOverlays();
+          Conversation.focusInput();
+                 // chilipeppr.publish(
+                 //    '/com-chilipeppr-elem-flashmsg/flashmsg',
+                 //    "Voice Control Acticve",
+                 //    "......",
+                 //    3000 );
         },
 
 

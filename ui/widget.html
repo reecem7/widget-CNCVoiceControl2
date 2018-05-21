@@ -45,10 +45,17 @@
                 <div class="tab-pane active" id="com-chilipeppr-widget-CNCVoiceControl2-tab1">
 
                     <div> Start Of New Ui </div>
+                    <table>
+                        <th>Webkit</th>
+                      <tr>
+                          <td><button type="button" class="btn btn-xs btn-default btn-voiceOn">Voice Control On</button></td>
+                          <td><button type="button" class="btn btn-xs btn-default btn-voiceOff">Voice Control Off</button></td>
+                      </tr>
 
-                      <!-- <div id="svg_wrapper">
-                        <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
-                        <button id="help" class="tooltip-dialog-btn" onclick="Sidebar.toggle()">What can I ask?</button>
+                    </table>
+                      <div id="svg_wrapper">
+                        <!-- <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div> -->
+                        <!-- <button id="help" class="tooltip-dialog-btn" onclick="Sidebar.toggle()">What can I ask?</button> -->
                         <div id="svg_size">
                             <svg id="svg_canvas" viewBox="0 0 1024 704" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
                         </div>
@@ -56,7 +63,7 @@
                             <div id="chat-scroll-wrapper"><div id="chat-flow"></div></div>
                             <div id="input-wrapper" class="responsive-columns-wrapper">
                                 <div id="input-mic-holder">
-                                    <div id="input-mic" class="inactive-mic" onclick="STTModule.micON()"></div>
+                                    <!-- <div id="input-mic" class="inactive-mic" onclick="STTModule.micON()"></div> -->
 
                                 </div>
 
@@ -64,7 +71,7 @@
                                   <input id="user-input" type="text" placeholder="Type something, e.g. “Turn the headlights on”">
                                 </label>
                             </div>
-                        </div> -->
+                        </div>
 
                         <!-- <button onclick="Api.initConversation()">Start</button> -->
                         <!-- <button onclick="ManualInit()">Start Service</button>
@@ -122,18 +129,18 @@
     <link rel="stylesheet" type="text/css" href="css/tooltip-dialogs.css">
     <link rel="stylesheet" type="text/css" href="css/conversation.css">
     <link rel="stylesheet" type="text/css" href="css/sidebar.css">
-    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/font.css"> -->
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
       <!-- endbuild -->
     <script src="js/cmds.js"></script>
     <script src="js/common.js"></script>
     <script src="js/api.js"></script>
-    <script src="js/sidebar.js"></script>
+    <!-- <script src="js/sidebar.js"></script> -->
 
-    <!-- <script src="js/conversation.js"></script>
+    <script src="js/conversation.js"></script>
     <script src="js/conversationResponse.js"></script>
     <script src="js/global.js"></script>
-    <script src="js/manualInit.js"></script> -->
+    <script src="js/manualInit.js"></script>
     <!-- endbuild -->
     <!-- <script src="ibm/watson-speech.min.js"></script>
     <script src="ibm/speech-to-text.js"></script>
