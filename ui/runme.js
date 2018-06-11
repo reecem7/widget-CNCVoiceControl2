@@ -23,19 +23,31 @@ var mimeTypes = {
   "js": "text/javascript",
   "css": "text/css"
 };
-//require('./config/express')(app);
+require('dotenv').config({silent: true});
+
 const express = require('express');
 const path = require('path');
+const app = express();
+
+// app.use(express.static(__dirname + '/ui/'));
+
+//load conversationRouter from router.js
+  // require('../config/express')(app);
+  //
+  require('../routes/conversation.js')(app);
+  // require('../routes/speech-to-text')(app);
+  // require('../routes/text-to-speech')(app);
+  // require('./ui/css/main.css');
+//  require('../config/error-handler')(app);
 
 // var certOptions = {
 //   key: fs.readFileSync(path.resolve('config/cert/server.key')),
 //   cert: fs.readFileSync(path.resolve('config/cert/server.crt'))
 // }
 
-const app = express();
-
-
 // app.use(express.static(__dirname));
+// // app.use(express.static(__dirname + '/ui/'));
+//
 //
 //   app.get('/',function(req,res){
 //
@@ -65,7 +77,7 @@ const app = express();
 //
 //   app.get('/widget.html',function(req,res){
 //
-//     res.status(200).sendFile(path.join(__dirname + '/ui/widget.html'));
+//     res.status(200).sendFile(path.join(__dirname + '/widget.html'));
 //
 //   });
 //
@@ -78,7 +90,7 @@ const app = express();
 // console.log('Server running on port: %d', port);
 
 
-
+//
 http.createServer(function(req, res) {
 
   var uri = url.parse(req.url).pathname;
@@ -224,17 +236,18 @@ http.createServer(function(req, res) {
 
         res.status(200).sendFile(path.join(__dirname + '/config/express.js'));
 
-  }else if (uri == "/js/conversationAMD.js") {
-
-    console.log("/js/conversationAMD.js");
-
-    // res.writeHead(200, {
-    //   'Content-Type': mimeType
-    // });
-
-        res.status(200).sendFile(path.join(__dirname + '/js/conversationAMD.js'));
-
   }
+  // else if (uri == "/js/conversationAMD.js") {
+  //
+  //   console.log("/js/conversationAMD.js");
+  //
+  //   // res.writeHead(200, {
+  //   //   'Content-Type': mimeType
+  //   // });
+  //
+  //     sendFile(path.join(__dirname + '/js/conversationAMD.js'));
+  //
+  // }
 
    else {
 
